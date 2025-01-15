@@ -22,7 +22,7 @@ class _MyWidgetState extends State<MyWidget> {
   @override
   void initState() {
     super.initState();
-    appRouter = widget.appRouter; // تعيين قيمة appRouter
+    appRouter = widget.appRouter;  
   }
 
   @override
