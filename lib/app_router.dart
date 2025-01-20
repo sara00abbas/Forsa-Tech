@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 // import "package:devloper_app/presentaion/screen/sign_in.dart";
-import 'package:devloper_app/presentaion/screen/welcomeScreen.dart';
+import 'package:devloper_app/presentaion/screen/WelcomeScreen.dart';
 
 class AppRouter {
 
