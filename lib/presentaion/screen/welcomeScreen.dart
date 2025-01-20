@@ -1,7 +1,6 @@
-import 'package:devloper_app/presentaion/screen/sign_in.dart';
+import 'package:devloper_app/presentaion/screen/SignUP.dart';
 import 'package:flutter/material.dart';
-import '../../Animation/Fadeanimation.dart'; 
-
+import '../../Animation/Fadeanimation.dart';
 
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
@@ -10,7 +9,8 @@ class MyWidget extends StatefulWidget {
   State<MyWidget> createState() => _MyWidgetState();
 }
 
-class _MyWidgetState extends State<MyWidget> with SingleTickerProviderStateMixin {
+class _MyWidgetState extends State<MyWidget>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _scaleAnimation;
 
@@ -18,13 +18,13 @@ class _MyWidgetState extends State<MyWidget> with SingleTickerProviderStateMixin
   void initState() {
     super.initState();
 
-    
+    // Initialize the animation controller
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 200), 
+      duration: const Duration(milliseconds: 200),
     );
 
-    
+    // Define the scale animation
     _scaleAnimation = Tween<double>(begin: 1.0, end: 0.9).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
@@ -37,11 +37,11 @@ class _MyWidgetState extends State<MyWidget> with SingleTickerProviderStateMixin
   }
 
   void _onButtonPressed() async {
-    
+    // Play the button animation
     await _animationController.forward();
     await _animationController.reverse();
 
-    
+    // Navigate to the SignIn screen
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const SignIn()),
@@ -55,81 +55,64 @@ class _MyWidgetState extends State<MyWidget> with SingleTickerProviderStateMixin
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 37, 35, 59),
       body: Stack(
-        children: <Widget>[
-          Positioned(
-            top: -150,
-            left: 0,
-            child: FadeAnimation(
-              1.6,
-              Container(
-                width: width,
-                height: 400,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/one.png"),
-                    fit: BoxFit.cover,
+        children: [
+          // Background layered images
+          for (int i = 0; i < 3; i++)
+            Positioned(
+              top: -150 + (i * 100),
+              child: FadeAnimation(
+                1.6 + (i * 0.4),
+                Container(
+                  width: width,
+                  height: 400,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/one.png"),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          Positioned(
-            top: -50,
-            child: FadeAnimation(
-              2,
-              Container(
-                width: width,
-                height: 400,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/one.png"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            top: 10,
-            child: FadeAnimation(
-              3,
-              Container(
-                width: width,
-                height: 400,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/one.png"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Container(
+
+          // Content
+          Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Welcome text
                 FadeAnimation(
                   1,
                   const Text(
                     "Welcome",
-                    style: TextStyle(color: Colors.white, fontSize: 40),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
+
+                const SizedBox(height: 10),
+
+                // Description text
                 FadeAnimation(
                   1,
                   Text(
                     "Everything you need as a developer, from resources to opportunities, all in one place.",
                     style: TextStyle(
-                      color: Colors.white.withOpacity(.7),
-                      fontSize: 20,
+                      color: Colors.white.withOpacity(0.7),
+                      fontSize: 18,
                       height: 1.4,
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 250),
+
+                // Animated button
                 FadeAnimation(
                   1.6,
                   Center(
@@ -149,8 +132,6 @@ class _MyWidgetState extends State<MyWidget> with SingleTickerProviderStateMixin
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               child: Container(
-                                width: 60,
-                                height: 60,
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: Colors.blue,
@@ -158,6 +139,7 @@ class _MyWidgetState extends State<MyWidget> with SingleTickerProviderStateMixin
                                 child: const Icon(
                                   Icons.arrow_forward,
                                   color: Colors.white,
+                                  size: 30,
                                 ),
                               ),
                             ),
@@ -167,7 +149,6 @@ class _MyWidgetState extends State<MyWidget> with SingleTickerProviderStateMixin
                     ),
                   ),
                 ),
-                const SizedBox(height: 60),
               ],
             ),
           ),
@@ -176,5 +157,3 @@ class _MyWidgetState extends State<MyWidget> with SingleTickerProviderStateMixin
     );
   }
 }
-
-

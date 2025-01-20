@@ -79,27 +79,5 @@ class _TextFormField1State extends State<TextFormField1> {
 }
 
 
-// TextFormField(
-//                 decoration: InputDecoration(
-//                   hintText: 'Enter your name',
-//                   hintStyle: const TextStyle(color: Colors.grey),
-//                   prefixIcon: const Icon(Icons.person, color: Colors.grey),
-//                   filled: true,
-//                   fillColor: Color(0xff5C4B7D),
-//                   border: OutlineInputBorder(
-//                     borderRadius: BorderRadius.circular(5.0),
-//                     borderSide: BorderSide.none,
-//                   ),
-//                 ),
-//                 validator: (value) {
-//                   if (value!.isEmpty) {
-//                     return "the field is empty";
-//                   }
-//                   if (value.length > 20) {
-//                     return "The value must not be greater than ten ";
-//                   }
-//                   return null;
-//                 },
-//                 style: const TextStyle(color: Colors.white),
-//               ),
+    
 
