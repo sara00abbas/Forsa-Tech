@@ -1,4 +1,3 @@
-import 'package:devloper_app/presentaion/screen/widget/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -26,26 +25,57 @@ class _SignInState extends State<SignIn> {
               const SizedBox(
                 height: 20,
               ),
-              const Customer1(
-                  mainText: "Create an account ✨",
-                  subText: "Welcome please enter your details"),
-              TextFormField1(
-                  hintText: "Enter your name",
-                  prefixIcon:const Icon(Icons.person),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "the field is empty";
-                    }
-                    if (value.length > 20) {
-                      return "The value must not be greater than ten ";
-                    }
-                    return null;
-                  },
-                  textStyle:const TextStyle(color: Colors.white),
-                  onChanged: (value) {
-                    print("$value");
-                  },
-                  fillColor:const Color(0xff5C4B7D)),
+              const Text(
+                "Create an account ✨",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              const Text(
+                "Welcome please enter your details",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              const Text(
+                "Name",
+                textAlign: TextAlign.start,
+                style: TextStyle(color: Colors.white),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText: 'Enter your name',
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  prefixIcon: const Icon(Icons.person, color: Colors.grey),
+                  filled: true,
+                  fillColor: Color(0xff5C4B7D),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "the field is empty";
+                  }
+                  if (value.length > 20) {
+                    return "The value must not be greater than ten ";
+                  }
+                  return null;
+                },
+                style: const TextStyle(color: Colors.white),
+              ),
               const SizedBox(
                 height: 30,
               ),
@@ -55,7 +85,7 @@ class _SignInState extends State<SignIn> {
                   hintStyle: const TextStyle(color: Colors.grey),
                   prefixIcon: const Icon(Icons.email, color: Colors.grey),
                   filled: true,
-                  fillColor:const Color(0xff5C4B7D),
+                  fillColor: Color(0xff5C4B7D),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
                     borderSide: BorderSide.none,
@@ -103,8 +133,7 @@ class _SignInState extends State<SignIn> {
               ),
               const Row(
                 children: [
-                  Icon(Icons.check_box,
-                      color: Color.fromARGB(255, 226, 209, 215), size: 16),
+                  Icon(Icons.check_box, color: Color.fromARGB(255, 226, 209, 215), size: 16),
                   SizedBox(width: 8),
                   const SizedBox(
                     height: 20,
@@ -146,15 +175,12 @@ class _SignInState extends State<SignIn> {
                   Expanded(child: Divider(color: Colors.grey)),
                   Padding(
                     padding: EdgeInsets.all(25),
-                    child: Text(
-                      "or Sign up with",
-                      style: TextStyle(color: Colors.white),
-                    ),
+                    child: Text("or Sign up with",style: TextStyle(color: Colors.white),),
                   ),
                   Expanded(child: Divider(color: Colors.grey)),
+                  
                 ],
-              ),
-              SizedBox(width: 20),
+              ),SizedBox(width: 20),
               Row(
                 children: [
                   Expanded(
@@ -192,14 +218,11 @@ class _SignInState extends State<SignIn> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Alreay have an account ?",
-                    style: TextStyle(color: Colors.grey),
-                  ),
+                  Text("Alreay have an account ?",style: TextStyle(color: Colors.grey),),
                   MaterialButton(
                     onPressed: () {},
-                    child: const Text("Log in "),
-                    textColor: Colors.grey,
+                    child: Text("Log in "),
+                    textColor:Colors.grey,
                   )
                 ],
               )
