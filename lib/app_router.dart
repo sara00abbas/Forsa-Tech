@@ -9,7 +9,7 @@ class AppRouter {
   Route? generateRoute (RouteSettings setting) {
     switch (setting.name) {
       case '/':
-      return MaterialPageRoute(builder: (_) => Welcomescreen() ) ; // the first screen in your app if you have second screen 
+      return MaterialPageRoute(builder: (_) => const Welcomescreen() ) ; // the first screen in your app if you have second screen 
 
       // case '/homepage' the scond page 
       // return 
