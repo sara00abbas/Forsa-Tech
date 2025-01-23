@@ -1,211 +1,253 @@
-import 'package:devloper_app/presentaion/screen/widget/auth.dart';
+// ignore_for_file: unused_import, unnecessary_import, duplicate_ignore
+
+import 'package:animate_do/animate_do.dart';
+// ignore: unused_import
+import 'package:devloper_app/presentaion/screen/widget/custom_botton.dart';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'widget/custom_field.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+class SignUp extends StatelessWidget {
+  final VoidCallback onLoginTap;
 
-  @override
-  State<SignIn> createState() => _SignInState();
-}
-
-class _SignInState extends State<SignIn> {
-  final _formKey = GlobalKey<FormState>();
+  const SignUp({Key? key, required this.onLoginTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 60, 39, 96),
-      body: Container(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              const Customer1(
-                  mainText: "Create an account ✨",
-                  subText: "Welcome please enter your details"),
-              TextFormField1(
-                  hintText: "Enter your name",
-                  prefixIcon:const Icon(Icons.person),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "the field is empty";
-                    }
-                    if (value.length > 20) {
-                      return "The value must not be greater than ten ";
-                    }
-                    return null;
-                  },
-                  textStyle:const TextStyle(color: Colors.white),
-                  onChanged: (value) {
-                    print("$value");
-                  },
-                  fillColor:const Color(0xff5C4B7D)),
-              const SizedBox(
-                height: 30,
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Enter your Email',
-                  hintStyle: const TextStyle(color: Colors.grey),
-                  prefixIcon: const Icon(Icons.email, color: Colors.grey),
-                  filled: true,
-                  fillColor:const Color(0xff5C4B7D),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "the field is empty";
-                  }
-                  if (value.length > 20) {
-                    return "The value must not be greater than ten ";
-                  }
-                  return null;
-                },
-                style: const TextStyle(color: Colors.white),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: '*********',
-                  hintStyle: const TextStyle(color: Colors.grey),
-                  prefixIcon: const Icon(Icons.lock, color: Colors.grey),
-                  filled: true,
-                  fillColor: Color(0xff5C4B7D),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "the field is empty";
-                  }
-                  if (value.length > 20) {
-                    return "The value must not be greater than ten ";
-                  }
-                  return null;
-                },
-                style: const TextStyle(color: Color(0xff)),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Row(
-                children: [
-                  Icon(Icons.check_box,
-                      color: Color.fromARGB(255, 226, 209, 215), size: 16),
-                  SizedBox(width: 8),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Must be at least 8 characters',
-                    style: TextStyle(color: Color(0xffB9BCC2)),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        print("vaild");
-                      } else {
-                        print("not valid");
-                      }
-                    },
-                    child: const Text("Sign Up"),
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      backgroundColor: Color(0xff9B87D7),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  )),
-              const SizedBox(
-                height: 5,
-              ),
-              const Row(
-                children: [
-                  SizedBox(width: 30),
-                  Expanded(child: Divider(color: Colors.grey)),
-                  Padding(
-                    padding: EdgeInsets.all(25),
-                    child: Text(
-                      "or Sign up with",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  Expanded(child: Divider(color: Colors.grey)),
-                ],
-              ),
-              SizedBox(width: 20),
-              Row(
-                children: [
-                  Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(Icons.g_mobiledata, color: Colors.white),
-                      label: const Text('Sign up with Google',
-                          style: TextStyle(color: Colors.white)),
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(color: Colors.grey),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+      backgroundColor: const Color(0xfff8f9fD),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(),
+                FadeInDown(
+                    duration: const Duration(milliseconds: 500),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 16),
+                            decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 209, 158, 207),
+                                borderRadius: BorderRadius.circular(30)),
+                            child: const Text(
+                              "Welcome Back",
+                              style: TextStyle(
+                                  color: Color(0xff4A154B),
+                                  fontWeight: FontWeight.w600),
+                            )),
+                        const SizedBox(
+                          height: 16,
                         ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 20),
-                  Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(Icons.facebook, color: Colors.blue),
-                      label: const Text('Sign up with Facebook',
-                          style: TextStyle(color: Colors.white)),
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(color: Colors.grey),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                        const Text(
+                          "Log in to your\naccount",
+                          style: TextStyle(
+                              color: Color(0xff1D1C1D),
+                              fontSize: 36,
+                              height: 1.2,
+                              fontWeight: FontWeight.bold),
                         ),
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        FadeInDown(
+                            duration: const Duration(milliseconds: 650),
+                            delay: const Duration(milliseconds: 200),
+                            child: Column(
+                              children: [
+                                Container(
+                                    child: const CustomField(
+                                        icon: CupertinoIcons.mail,
+                                        gradientColors: [
+                                          Color(0xFF4A154B),
+                                          Color(0xFF6B1A6B)
+                                        ],
+                                        hint: "Email")),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                const CustomField(
+                                  icon: CupertinoIcons.lock,
+                                  gradientColors: [
+                                    Color(0xFF4A154B),
+                                    Color(0xFF6B1A6B)
+                                  ],
+                                  hint: "password",
+                                  isPassword: true,
+                                ),
+                              ],
+                            ))
+                      ],
+                    )),
+                const SizedBox(
+                  height: 26,
+                ),
+                FadeInDown(
+                    delay: const Duration(milliseconds: 600),
+                    duration: const Duration(milliseconds: 400),
+                    child: CustomButton(onPressed: () {}, text: "Log in ")),
+                const SizedBox(
+                  height: 24,
+                ),
+                FadeInDown(
+                    delay: const Duration(milliseconds: 600),
+                    duration: const Duration(milliseconds: 600),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Don't hava an account ?",
+                          style:
+                              TextStyle(color: Color.fromARGB(255, 61, 26, 61)),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignUp(
+                                  onLoginTap: () {
+                                    Navigator.pop(
+                                        context); 
+                                  },
+                                ),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            " Log In",
+                            style: TextStyle(
+                                color: Color(
+                                  0xFF4A154B,
+                                ),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      ],
+                    )),
+                const SizedBox(
+                  height: 40,
+                ),
+                FadeInDown(
+                  delay: const Duration(milliseconds: 600),
+                  duration: const Duration(milliseconds: 800),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 1,
+                              decoration: const BoxDecoration(
+                                gradient: LinearGradient(colors: [
+                                  Colors.transparent,
+                                  Color(0xffe0e0e0),
+                                ]),
+                              ),
+                            ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10.0),
+                            child: Text(
+                              'or continue with',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Color(0xffe0e0e0), // نفس لون الخط
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: 1,
+                              decoration: const BoxDecoration(
+                                gradient: LinearGradient(colors: [
+                                  Colors.transparent,
+                                  Color(0xffe0e0e0),
+                                ]),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
+                      const SizedBox(height: 24),
+                      Row(
+                        children: [
+                          ElasticIn(
+                            delay: const Duration(milliseconds: 800),
+                            duration: const Duration(milliseconds: 1000),
+                            child: _buildSocialButton(
+                                icon: Icons.apple,
+                                label: "GitHub",
+                                gradientColors: [
+                                  const Color(0xff00000),
+                                  const Color(0xff2c2c2c)
+                                ]),
+                          ),
+                          ElasticIn(
+                            delay: const Duration(milliseconds: 800),
+                            duration: const Duration(milliseconds: 1000),
+                            child: _buildSocialButton(
+                                icon: Icons.apple,
+                                label: "Linked IN",
+                                gradientColors: [
+                                  const Color(0xffdb4437),
+                                  const Color(0xfff66d5b),
+                                ]),
+                          )
+                        ],
+                      )
+                    ],
                   ),
-                ],
-              ),
-              Spacer(flex: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Alreay have an account ?",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  MaterialButton(
-                    onPressed: () {},
-                    child: const Text("Log in "),
-                    textColor: Colors.grey,
-                  )
-                ],
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildSocialButton({
+    required IconData icon,
+    required String label,
+    required List<Color> gradientColors,
+  }) {
+    return Container(
+      height: 55,
+      width: 150,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            gradientColors[0].withOpacity(0.1),
+            gradientColors[1].withOpacity(0.1),
+          ],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+        ),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            icon,
+            color: gradientColors[0],
+          ),
+          const SizedBox(width: 8),
+          Text(
+            label,
+            style: TextStyle(
+              color: gradientColors[0],
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
       ),
     );
   }
