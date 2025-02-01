@@ -30,7 +30,7 @@ class AuthWebServices {
     }
   }
 
- Future<Map<String, dynamic>> login(String email, String password) async {
+  Future<Map<String, dynamic>> login(String email, String password) async {
     try {
       Response response = await dio.post(
         "/login",
@@ -40,11 +40,10 @@ class AuthWebServices {
         },
       );
 
-      return response.data; 
+      return response.data;
     } catch (e) {
       print(" $e");
       throw Exception("error");
     }
   }
-
 }
