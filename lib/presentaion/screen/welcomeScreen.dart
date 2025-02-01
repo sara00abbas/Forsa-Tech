@@ -42,10 +42,9 @@ class _MyWidgetState extends State<Welcomescreen>
       MaterialPageRoute(
         builder: (context) => LogIn(
           onLoginTap: () {
-            print("Login tapped");
           },
           onSignUpTap: () {
-            print("SignUp tapped");
+           
           },
         ),
       ),
@@ -57,7 +56,7 @@ class _MyWidgetState extends State<Welcomescreen>
     final double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 37, 35, 59),
+      backgroundColor:  Color(0xff4A154B),
       body: Stack(
         children: [
           for (int i = 0; i < 3; i++)
@@ -122,13 +121,13 @@ class _MyWidgetState extends State<Welcomescreen>
                               width: 80,
                               height: 80,
                               decoration: BoxDecoration(
-                                color: Colors.blue.withOpacity(0.4),
+                                color:const Color(0xff4A154B).withOpacity(0.4),
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               child: Container(
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: Colors.blue,
+                                  color: Color.fromARGB(255, 57, 15, 57),
                                 ),
                                 child: const Icon(
                                   Icons.arrow_forward,

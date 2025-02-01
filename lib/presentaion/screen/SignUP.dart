@@ -37,7 +37,7 @@ class SignUp extends StatelessWidget {
                                 color: const Color.fromARGB(255, 209, 158, 207),
                                 borderRadius: BorderRadius.circular(30)),
                             child: const Text(
-                              "Welcome Back",
+                              "Join us today",
                               style: TextStyle(
                                   color: Color(0xff4A154B),
                                   fontWeight: FontWeight.w600),
@@ -46,7 +46,7 @@ class SignUp extends StatelessWidget {
                           height: 16,
                         ),
                         const Text(
-                          "Log in to your\naccount",
+                          "Create your\naccount",
                           style: TextStyle(
                               color: Color(0xff1D1C1D),
                               fontSize: 36,
@@ -73,6 +73,18 @@ class SignUp extends StatelessWidget {
                                   height: 16,
                                 ),
                                 const CustomField(
+                                  icon: CupertinoIcons.person,
+                                  gradientColors: [
+                                    Color(0xFF4A154B),
+                                    Color(0xFF6B1A6B)
+                                  ],
+                                  hint: "Username",
+                                  isPassword: true,
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                const CustomField(
                                   icon: CupertinoIcons.lock,
                                   gradientColors: [
                                     Color(0xFF4A154B),
@@ -81,8 +93,19 @@ class SignUp extends StatelessWidget {
                                   hint: "password",
                                   isPassword: true,
                                 ),
+                                const SizedBox(
+                                  height: 16,
+                                ),const CustomField(
+                                  icon: CupertinoIcons.lock_rotation_open,
+                                  gradientColors: [
+                                    Color(0xFF4A154B),
+                                    Color(0xFF6B1A6B)
+                                  ],
+                                  hint: "Confirm Password",
+                                  isPassword: true,
+                                ),
                               ],
-                            ))
+                            )),
                       ],
                     )),
                 const SizedBox(
@@ -91,7 +114,7 @@ class SignUp extends StatelessWidget {
                 FadeInDown(
                     delay: const Duration(milliseconds: 600),
                     duration: const Duration(milliseconds: 400),
-                    child: CustomButton(onPressed: () {}, text: "Log in ")),
+                    child: CustomButton(onPressed: () {}, text: "Sign up ")),
                 const SizedBox(
                   height: 24,
                 ),
@@ -113,8 +136,7 @@ class SignUp extends StatelessWidget {
                               MaterialPageRoute(
                                 builder: (context) => SignUp(
                                   onLoginTap: () {
-                                    Navigator.pop(
-                                        context); 
+                                    Navigator.pop(context);
                                   },
                                 ),
                               ),
@@ -158,7 +180,7 @@ class SignUp extends StatelessWidget {
                               'or continue with',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Color(0xffe0e0e0), // نفس لون الخط
+                                color: Color(0xFF4A154B),
                               ),
                             ),
                           ),
@@ -176,7 +198,7 @@ class SignUp extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 24),
-                      Row(
+                      Row(mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElasticIn(
                             delay: const Duration(milliseconds: 800),
@@ -185,11 +207,11 @@ class SignUp extends StatelessWidget {
                                 icon: Icons.apple,
                                 label: "GitHub",
                                 gradientColors: [
-                                  const Color(0xff00000),
-                                  const Color(0xff2c2c2c)
+                                  Color.fromARGB(15, 163, 127, 127),
+                                  Color.fromARGB(255, 51, 49, 49)
                                 ]),
-                          ),
-                          ElasticIn(
+                          ),const SizedBox(width : 60)
+                         , ElasticIn(
                             delay: const Duration(milliseconds: 800),
                             duration: const Duration(milliseconds: 1000),
                             child: _buildSocialButton(
@@ -197,7 +219,7 @@ class SignUp extends StatelessWidget {
                                 label: "Linked IN",
                                 gradientColors: [
                                   const Color(0xffdb4437),
-                                  const Color(0xfff66d5b),
+                                  Color.fromARGB(255, 243, 101, 82),
                                 ]),
                           )
                         ],
@@ -237,13 +259,13 @@ class SignUp extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: gradientColors[0],
+            color: gradientColors[1],
           ),
           const SizedBox(width: 8),
           Text(
             label,
             style: TextStyle(
-              color: gradientColors[0],
+              color: gradientColors[1],
               fontWeight: FontWeight.w600,
             ),
           ),
