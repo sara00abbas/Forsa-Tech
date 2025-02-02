@@ -1,4 +1,5 @@
 import 'package:devloper_app/app_router.dart';
+import 'package:devloper_app/presentaion/screen/widget/bouttom_navigation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,6 +31,7 @@ class _MyWidgetState extends State<MyWidget> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRouter.generateRoute,
+     home:BottomNavigation()
     );
   }
 }
