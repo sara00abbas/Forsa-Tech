@@ -1,4 +1,5 @@
 // ignore: unused_import
+import 'package:devloper_app/presentaion/screen/Home.dart';
 import 'package:devloper_app/presentaion/screen/LogIN.dart';
 import "package:flutter/material.dart";
 // import "package:devloper_app/presentaion/screen/sign_in.dart";
@@ -9,7 +10,7 @@ class AppRouter {
   Route? generateRoute (RouteSettings setting) {
     switch (setting.name) {
       case '/':
-      return MaterialPageRoute(builder: (_) => const Welcomescreen() ) ; // the first screen in your app if you have second screen 
+      return MaterialPageRoute(builder: (_) => const HomePage() ) ; // the first screen in your app if you have second screen 
 
       // case '/homepage' the scond page 
       // return 
