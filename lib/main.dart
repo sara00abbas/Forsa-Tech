@@ -31,7 +31,7 @@ class _MyWidgetState extends State<MyWidget> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRouter.generateRoute,
-     home:BottomNavigation()
+    //  home:BottomNavigation()
     );
   }
 }
