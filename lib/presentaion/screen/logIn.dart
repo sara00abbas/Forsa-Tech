@@ -3,6 +3,7 @@ import 'package:devloper_app/presentaion/screen/widget/custom_botton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'widget/custom_field.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'package:devloper_app/presentaion/screen/SignUP.dart';
 
 class LogIn extends StatefulWidget {
@@ -90,7 +91,7 @@ class _LogInState extends State<LogIn> {
                                 ),
                               ],
                             ))
-                      ], 
+                      ],
                     )),
                 const SizedBox(
                   height: 26,
@@ -164,7 +165,7 @@ class _LogInState extends State<LogIn> {
                               'or continue with',
                               style: TextStyle(
                                 fontSize: 14,
-                                color:  Color(0xFF4A154B), // نفس لون الخط
+                                color: Color(0xFF4A154B), // نفس لون الخط
                               ),
                             ),
                           ),
@@ -182,24 +183,26 @@ class _LogInState extends State<LogIn> {
                         ],
                       ),
                       const SizedBox(height: 24),
-                      Row(mainAxisAlignment:MainAxisAlignment.center ,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElasticIn(
                             delay: const Duration(milliseconds: 800),
                             duration: const Duration(milliseconds: 1000),
                             child: _buildSocialButton(
-                                icon: Icons.apple,
+                                icon: EvaIcons.github,
                                 label: "GitHub",
                                 gradientColors: [
                                   Color.fromARGB(15, 163, 127, 127),
                                   Color.fromARGB(255, 51, 49, 49)
                                 ]),
-                          ),const SizedBox(width : 60),
+                          ),
+                          const SizedBox(width: 60),
                           ElasticIn(
                             delay: const Duration(milliseconds: 800),
                             duration: const Duration(milliseconds: 1000),
                             child: _buildSocialButton(
-                                icon: Icons.apple,
+                                icon: EvaIcons.linkedin,
                                 label: "Linked IN",
                                 gradientColors: [
                                   const Color(0xffdb4437),

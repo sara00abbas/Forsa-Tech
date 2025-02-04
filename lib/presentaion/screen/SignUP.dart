@@ -7,6 +7,7 @@ import 'package:devloper_app/presentaion/screen/widget/custom_botton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'widget/custom_field.dart';
+import 'package:icons_plus/icons_plus.dart';
 
 class SignUp extends StatelessWidget {
   final VoidCallback onLoginTap;
@@ -95,7 +96,8 @@ class SignUp extends StatelessWidget {
                                 ),
                                 const SizedBox(
                                   height: 16,
-                                ),const CustomField(
+                                ),
+                                const CustomField(
                                   icon: CupertinoIcons.lock_rotation_open,
                                   gradientColors: [
                                     Color(0xFF4A154B),
@@ -198,24 +200,26 @@ class SignUp extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 24),
-                      Row(mainAxisAlignment: MainAxisAlignment.center,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElasticIn(
                             delay: const Duration(milliseconds: 800),
                             duration: const Duration(milliseconds: 1000),
                             child: _buildSocialButton(
-                                icon: Icons.apple,
+                                icon: EvaIcons.github,
                                 label: "GitHub",
                                 gradientColors: [
                                   Color.fromARGB(15, 163, 127, 127),
                                   Color.fromARGB(255, 51, 49, 49)
                                 ]),
-                          ),const SizedBox(width : 60)
-                         , ElasticIn(
+                          ),
+                          const SizedBox(width: 60),
+                          ElasticIn(
                             delay: const Duration(milliseconds: 800),
                             duration: const Duration(milliseconds: 1000),
                             child: _buildSocialButton(
-                                icon: Icons.apple,
+                                icon: EvaIcons.linkedin,
                                 label: "Linked IN",
                                 gradientColors: [
                                   const Color(0xffdb4437),
@@ -242,7 +246,7 @@ class SignUp extends StatelessWidget {
   }) {
     return Container(
       height: 55,
-      width: 150,
+      width: 170,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -261,7 +265,7 @@ class SignUp extends StatelessWidget {
             icon,
             color: gradientColors[1],
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: 5),
           Text(
             label,
             style: TextStyle(

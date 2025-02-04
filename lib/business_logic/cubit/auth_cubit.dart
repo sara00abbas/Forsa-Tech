@@ -1,20 +1,19 @@
 import 'package:bloc/bloc.dart';
 import 'package:devloper_app/data/repository/auth.dart';
 import 'package:meta/meta.dart';
-
 import '../../data/models/auth.dart';
-
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
- final AuthRepository authRepository ; // اول ماتعملي اوبجكت من كلاس مو ابستراكت لازم
+  final AuthRepository
+      authRepository; // اول ماتعملي اوبجكت من كلاس مو ابستراكت لازم
 
+  AuthCubit(this.authRepository)
+      : super(AuthInitial()); // عند this حطيتي الكونستراكتر
 
-  AuthCubit(this.authRepository) : super(AuthInitial()); // عند this حطيتي الكونستراكتر
-
- // List<>
- // لتسجيل حساب
- Future<void> signUp(AuthModel authModel) async {
+  // List<>
+  // لتسجيل حساب
+  Future<void> signUp(AuthModel authModel) async {
     emit(AuthLoading());
     try {
       final response = await authRepository.signUp(authModel);
@@ -24,8 +23,8 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  // هي منشان login 
- Future<void> login(String email, String password) async {
+  // هي منشان login
+  Future<void> login(String email, String password) async {
     emit(AuthLoading());
     try {
       final response = await authRepository.login(email, password);
@@ -34,7 +33,4 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthFailure(e.toString()));
     }
   }
-
 }
-
-
