@@ -1,5 +1,6 @@
 // ignore: file_names
 // import 'package:devloper_app/presentaion/screen/SignUP.dart';
+import 'package:devloper_app/presentaion/screen/SignUP.dart';
 import 'package:devloper_app/presentaion/screen/logIn.dart';
 import 'package:flutter/material.dart';
 import '../../Animation/Fadeanimation.dart';
@@ -40,7 +41,7 @@ class _MyWidgetState extends State<Welcomescreen>
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => LogIn(
+        builder: (context) => SignUp(
           onLoginTap: () {},
           onSignUpTap: () {},
         ),

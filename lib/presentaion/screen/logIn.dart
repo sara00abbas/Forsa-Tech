@@ -115,18 +115,18 @@ class _LogInState extends State<LogIn> {
                               TextStyle(color: Color.fromARGB(255, 61, 26, 61)),
                         ),
                         GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SignUp(
-                                  onLoginTap: () {
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                              ),
-                            );
-                          },
+                          // onTap: () {
+                          //   Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //       builder: (context) => SignUp(
+                          //         onLoginTap: () {
+                          //           Navigator.pop(context);
+                          //         },
+                          //       ),
+                          //     ),
+                          //   );
+                          // },
                           child: const Text(
                             " Sign Up",
                             style: TextStyle(

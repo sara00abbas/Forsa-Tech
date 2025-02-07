@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomField extends StatelessWidget {
+  final TextEditingController controller;
   final IconData icon;
   final String hint;
   final bool isPassword;
@@ -12,6 +13,7 @@ class CustomField extends StatelessWidget {
     required this.gradientColors,
     required this.hint,
     this.isPassword = false,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -29,6 +31,7 @@ class CustomField extends StatelessWidget {
         ],
       ),
       child: TextField(
+        controller: controller,
         obscureText: isPassword,
         style: const TextStyle(color: Color(0xFF101010)),
         decoration: InputDecoration(
@@ -40,7 +43,7 @@ class CustomField extends StatelessWidget {
             ).createShader(bounds),
             child: Icon(
               icon,
-              color: Colors.white, 
+              color: Colors.white,
             ),
           ),
           hintText: hint,
