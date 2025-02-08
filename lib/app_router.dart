@@ -48,7 +48,6 @@ class AppRouter {
             create: (context) => authCubit,
             child: SignUp(
               onLoginTap: () {},
-              onSignUpTap: () {},
             ),
           ),
         );

@@ -13,7 +13,10 @@ class AuthCubit extends Cubit<AuthState> {
 
   // List<>
   // لتسجيل حساب
-  Future<void> signUp(AuthModel authModel) async {
+  Future<void> signUp(AuthModel authModel,
+      {required String email,
+      required String username,
+      required String password}) async {
     emit(AuthLoading());
     try {
       final response = await authRepository.signUp(authModel);

@@ -6,6 +6,7 @@ class CustomField extends StatelessWidget {
   final String hint;
   final bool isPassword;
   final List<Color> gradientColors;
+  final String? Function(String?)? validator;
 
   const CustomField({
     Key? key,
@@ -14,6 +15,7 @@ class CustomField extends StatelessWidget {
     required this.hint,
     this.isPassword = false,
     required this.controller,
+    required this.validator,
   }) : super(key: key);
 
   @override
@@ -30,7 +32,8 @@ class CustomField extends StatelessWidget {
           ),
         ],
       ),
-      child: TextField(
+      child: TextFormField(
+        validator: validator,
         controller: controller,
         obscureText: isPassword,
         style: const TextStyle(color: Color(0xFF101010)),

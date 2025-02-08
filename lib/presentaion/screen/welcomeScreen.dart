@@ -43,7 +43,6 @@ class _MyWidgetState extends State<Welcomescreen>
       MaterialPageRoute(
         builder: (context) => SignUp(
           onLoginTap: () {},
-          onSignUpTap: () {},
         ),
       ),
     );

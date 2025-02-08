@@ -10,11 +10,10 @@ import 'package:icons_plus/icons_plus.dart';
 class SignUp extends StatefulWidget {
   final VoidCallback onLoginTap;
 
-  const SignUp(
-      {Key? key,
-      required this.onLoginTap,
-      required Null Function() onSignUpTap})
-      : super(key: key);
+  const SignUp({
+    Key? key,
+    required this.onLoginTap,
+  }) : super(key: key);
 
   @override
   _SignUpState createState() => _SignUpState();
@@ -26,6 +25,7 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,81 +72,114 @@ class _SignUpState extends State<SignUp> {
                       FadeInDown(
                         duration: const Duration(milliseconds: 650),
                         delay: const Duration(milliseconds: 200),
-                        child: Column(
-                          children: [
-                            CustomField(
-                              controller: emailController,
-                              icon: CupertinoIcons.mail,
-                              gradientColors: const [
-                                Color(0xFF4A154B),
-                                Color(0xFF6B1A6B)
-                              ],
-                              hint: "Email",
-                            ),
-                            const SizedBox(height: 16),
-                            CustomField(
-                              controller: usernameController,
-                              icon: CupertinoIcons.person,
-                              gradientColors: const [
-                                Color(0xFF4A154B),
-                                Color(0xFF6B1A6B)
-                              ],
-                              hint: "Username",
-                              isPassword: false,
-                            ),
-                            const SizedBox(height: 16),
-                            CustomField(
-                              controller: passwordController,
-                              icon: CupertinoIcons.lock,
-                              gradientColors: const [
-                                Color(0xFF4A154B),
-                                Color(0xFF6B1A6B)
-                              ],
-                              hint: "Password",
-                              isPassword: true,
-                            ),
-                            const SizedBox(height: 16),
-                            CustomField(
-                              controller: confirmPasswordController,
-                              icon: CupertinoIcons.lock_rotation_open,
-                              gradientColors: const [
-                                Color(0xFF4A154B),
-                                Color(0xFF6B1A6B)
-                              ],
-                              hint: "Confirm Password",
-                              isPassword: true,
-                            ),
-                          ],
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              CustomField(
+                                controller: emailController,
+                                icon: CupertinoIcons.mail,
+                                gradientColors: const [
+                                  Color(0xFF4A154B),
+                                  Color(0xFF6B1A6B)
+                                ],
+                                hint: "Email",
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter an email';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              const SizedBox(height: 16),
+                              CustomField(
+                                controller: usernameController,
+                                icon: CupertinoIcons.person,
+                                gradientColors: const [
+                                  Color(0xFF4A154B),
+                                  Color(0xFF6B1A6B)
+                                ],
+                                hint: "Username",
+                                isPassword: false,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter a username';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              const SizedBox(height: 16),
+                              CustomField(
+                                controller: passwordController,
+                                icon: CupertinoIcons.lock,
+                                gradientColors: const [
+                                  Color(0xFF4A154B),
+                                  Color(0xFF6B1A6B)
+                                ],
+                                hint: "Password",
+                                isPassword: true,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter a password';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              const SizedBox(height: 16),
+                              CustomField(
+                                controller: confirmPasswordController,
+                                icon: CupertinoIcons.lock_rotation_open,
+                                gradientColors: const [
+                                  Color(0xFF4A154B),
+                                  Color(0xFF6B1A6B)
+                                ],
+                                hint: "Confirm Password",
+                                isPassword: true,
+                                validator: (value) {
+                                  if (value != passwordController.text) {
+                                    return 'Passwords do not match';
+                                  }
+                                  return null;
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                // BlocConsumer<AuthCubit, AuthState>(
-                //   listener: (context, state) {
-                //     if (state is AuthSuccess) {
-                //       ScaffoldMessenger.of(context).showSnackBar(
-                //         SnackBar(content: Text("Sign Up Successful!")),
-                //       );
-                //     } else if (state is AuthFailure) {
-                //       ScaffoldMessenger.of(context).showSnackBar(
-                //         SnackBar(content: Text(state.error)),
-                //       );
-                //     }
-                //   },
-                //   builder: (context, state) {
-                //     if (state is AuthLoading) {
-                //       return const Center(child: CircularProgressIndicator());
-                //     } else {
-                //       return Container();
-                //     }
-                //   },
-                // ),
-                const SizedBox(height: 26),
-                FadeInDown(
-                  delay: const Duration(milliseconds: 600),
-                  duration: const Duration(milliseconds: 400),
-                  child: CustomButton(onPressed: () {}, text: "Sign up"),
+                BlocConsumer<AuthCubit, AuthState>(
+                  listener: (context, state) {
+                    if (state is AuthSuccess) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Sign Up Successful!")),
+                      );
+                    } else if (state is AuthFailure) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(state.error)),
+                      );
+                    }
+                  },
+                  builder: (context, state) {
+                    return Column(
+                      children: [
+                        const SizedBox(height: 26),
+                        FadeInDown(
+                          delay: const Duration(milliseconds: 600),
+                          duration: const Duration(milliseconds: 400),
+                          child: state is AuthLoading
+                              ? const CircularProgressIndicator()
+                              : CustomButton(
+                                  onPressed: () {
+                                    context.read<AuthCubit>().signUp();
+                                  },
+                                  text: "Sign up",
+                                ),
+                        ),
+                      ],
+                    );
+                  },
                 ),
                 const SizedBox(height: 24),
                 FadeInDown(
