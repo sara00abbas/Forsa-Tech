@@ -1,7 +1,9 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:devloper_app/business_logic/cubit/auth_cubit.dart';
 import 'package:devloper_app/presentaion/screen/widget/custom_botton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widget/custom_field.dart';
 import 'package:icons_plus/icons_plus.dart';
 
@@ -120,6 +122,26 @@ class _SignUpState extends State<SignUp> {
                     ],
                   ),
                 ),
+                // BlocConsumer<AuthCubit, AuthState>(
+                //   listener: (context, state) {
+                //     if (state is AuthSuccess) {
+                //       ScaffoldMessenger.of(context).showSnackBar(
+                //         SnackBar(content: Text("Sign Up Successful!")),
+                //       );
+                //     } else if (state is AuthFailure) {
+                //       ScaffoldMessenger.of(context).showSnackBar(
+                //         SnackBar(content: Text(state.error)),
+                //       );
+                //     }
+                //   },
+                //   builder: (context, state) {
+                //     if (state is AuthLoading) {
+                //       return const Center(child: CircularProgressIndicator());
+                //     } else {
+                //       return Container();
+                //     }
+                //   },
+                // ),
                 const SizedBox(height: 26),
                 FadeInDown(
                   delay: const Duration(milliseconds: 600),

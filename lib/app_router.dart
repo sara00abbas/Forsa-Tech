@@ -32,16 +32,16 @@ class AppRouter {
 
       // case '/homepage' the scond page
       // return
-      case loginscreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => authCubit,
-            child: LogIn(
-              onSignUpTap: () {},
-              onLoginTap: () {},
-            ),
-          ),
-        );
+      // case loginscreen:
+      //   return MaterialPageRoute(
+      //     builder: (_) => BlocProvider(
+      //       create: (context) => authCubit,
+      //       child: LogIn(
+      //         onSignUpTap: () {},
+      //         onLoginTap: () {},
+      //       ),
+      //     ),
+      //   );
       case signupscreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

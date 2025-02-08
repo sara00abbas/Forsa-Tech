@@ -8,7 +8,7 @@ class MyColors {
     Color(0xFF6B1A6B),
   ], begin: Alignment.topLeft, end: Alignment.bottomRight);
 
-  static final LinearGradient myGreadient2 = LinearGradient(colors: [
+  static const LinearGradient myGreadient2 = LinearGradient(colors: [
     Color(0xFF4A15F4),
     Color(0xFF6B1A6B),
   ]);
