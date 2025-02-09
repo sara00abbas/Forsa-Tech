@@ -41,9 +41,7 @@ class _MyWidgetState extends State<Welcomescreen>
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SignUp(
-          onLoginTap: () {},
-        ),
+        builder: (context) => SignUp(),
       ),
     );
   }

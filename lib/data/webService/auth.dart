@@ -18,10 +18,14 @@ class AuthWebServices {
   // الفانكشن الاول من شان تسجيل حساب
   Future<Map<String, dynamic>> signUp(AuthModel authModel) async {
     try {
-      Response response = await dio.post(
-        "/signup",
-        data: authModel.toJson(),
-      );
+      Response response = await dio.post("/SignUp",
+          data: authModel.toJson(),
+          options: Options(
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+            },
+          ));
 
       return response.data;
     } catch (e) {

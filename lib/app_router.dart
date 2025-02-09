@@ -24,11 +24,14 @@ class AppRouter {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => authCubit,
-            child: const Welcomescreen(),
-          ),
-        ); // the first screen in your app if you have second screen
+          builder: (context) => Welcomescreen(),
+        );
+      // return MaterialPageRoute(
+      //   builder: (_) => BlocProvider(
+      //     create: (context) => authCubit,
+      //     child: const Welcomescreen(),
+      //   ),
+      // ); // the first screen in your app if you have second screen
 
       // case '/homepage' the scond page
       // return
@@ -44,12 +47,7 @@ class AppRouter {
       //   );
       case signupscreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => authCubit,
-            child: SignUp(
-              onLoginTap: () {},
-            ),
-          ),
+          builder: (context) => SignUp(), // 🚀 إزالة BlocProvider هنا
         );
 
       default:

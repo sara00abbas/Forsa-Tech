@@ -1,11 +1,24 @@
 import 'package:devloper_app/app_router.dart';
 import 'package:devloper_app/presentaion/screen/widget/bouttom_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'business_logic/cubit/auth_cubit.dart';
+import 'data/repository/auth.dart';
+import 'data/webService/auth.dart';
 
 void main() {
-  runApp(MyWidget(
-    appRouter: AppRouter(),
-  ));
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthCubit>(
+          create: (context) =>
+              AuthCubit(AuthRepository(authWebServices: AuthWebServices())),
+        ),
+      ],
+      child: MyWidget(appRouter: AppRouter()),
+    ),
+  );
 }
 
 class MyWidget extends StatefulWidget {
@@ -23,7 +36,7 @@ class _MyWidgetState extends State<MyWidget> {
   @override
   void initState() {
     super.initState();
-    appRouter = widget.appRouter;  
+    appRouter = widget.appRouter;
   }
 
   @override
@@ -31,7 +44,7 @@ class _MyWidgetState extends State<MyWidget> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRouter.generateRoute,
-    //  home:BottomNavigation()
+      //  home:BottomNavigation()
     );
   }
 }

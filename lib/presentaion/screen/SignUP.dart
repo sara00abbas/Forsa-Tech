@@ -4,15 +4,13 @@ import 'package:devloper_app/presentaion/screen/widget/custom_botton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../data/models/auth.dart';
 import 'widget/custom_field.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 class SignUp extends StatefulWidget {
-  final VoidCallback onLoginTap;
-
   const SignUp({
     Key? key,
-    required this.onLoginTap,
   }) : super(key: key);
 
   @override
@@ -157,7 +155,7 @@ class _SignUpState extends State<SignUp> {
                       );
                     } else if (state is AuthFailure) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(state.error)),
+                        SnackBar(content: Text(state.error)), // طبعي الايور
                       );
                     }
                   },
@@ -172,7 +170,16 @@ class _SignUpState extends State<SignUp> {
                               ? const CircularProgressIndicator()
                               : CustomButton(
                                   onPressed: () {
-                                    context.read<AuthCubit>().signUp();
+                                    context.read<AuthCubit>().signUp(
+                                          AuthModel(
+                                            email: emailController.text,
+                                            username: usernameController.text,
+                                            password: passwordController.text,
+                                          ),
+                                          email: emailController.text,
+                                          username: usernameController.text,
+                                          password: passwordController.text,
+                                        );
                                   },
                                   text: "Sign up",
                                 ),
@@ -194,7 +201,7 @@ class _SignUpState extends State<SignUp> {
                             TextStyle(color: Color.fromARGB(255, 61, 26, 61)),
                       ),
                       GestureDetector(
-                        onTap: widget.onLoginTap,
+                        // onTap: widget.onLoginTap,
                         child: const Text(
                           " Log In",
                           style: TextStyle(
