@@ -155,7 +155,7 @@ class _SignUpState extends State<SignUp> {
                       );
                     } else if (state is AuthFailure) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(state.error)), // طبعي الايور
+                        SnackBar(content: Text(state.error)), //
                       );
                     }
                   },

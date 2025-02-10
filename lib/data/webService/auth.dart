@@ -18,7 +18,7 @@ class AuthWebServices {
   // الفانكشن الاول من شان تسجيل حساب
   Future<Map<String, dynamic>> signUp(AuthModel authModel) async {
     try {
-      Response response = await dio.post("/SignUp",
+      Response response = await dio.post("signUp/",
           data: authModel.toJson(),
           options: Options(
             headers: {
