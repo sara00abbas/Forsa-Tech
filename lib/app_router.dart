@@ -9,8 +9,8 @@ import 'package:devloper_app/presentaion/screen/SignUP.dart';
 import 'package:devloper_app/presentaion/screen/sidebar_menu.dart';
 import "package:flutter/material.dart";
 import 'package:devloper_app/presentaion/screen/WelcomeScreen.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:devloper_app/constants/String.dart';
+
+import 'presentaion/screen/splashScreen.dart';
 
 class AppRouter {
   late AuthRepository authRepository;
