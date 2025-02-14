@@ -15,8 +15,8 @@ class _SidebarMenuState extends State<SidebarMenu> {
       body: Container(
         width: 288,
         height: double.infinity,
-        color: Color(0xff17203a),
-        child: Column(
+        color: const Color(0xff17203a),
+        child: const Column(
           children: [
             ListTile(
               leading: CircleAvatar(

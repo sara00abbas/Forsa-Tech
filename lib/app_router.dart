@@ -3,12 +3,15 @@ import 'package:devloper_app/business_logic/cubit/auth_cubit.dart';
 import 'package:devloper_app/constants/String.dart';
 import 'package:devloper_app/data/repository/auth.dart';
 import 'package:devloper_app/data/webService/auth.dart';
+import 'package:devloper_app/presentaion/screen/Home.dart';
 // import 'package:devloper_app/presentaion/screen/Home.dart';
 // import 'package:devloper_app/presentaion/screen/LogIN.dart';
 import 'package:devloper_app/presentaion/screen/SignUP.dart';
 // import 'package:devloper_app/presentaion/screen/sidebar_menu.dart';
 import "package:flutter/material.dart";
 import 'package:devloper_app/presentaion/screen/WelcomeScreen.dart';
+
+import 'presentaion/screen/sidebar_menu.dart';
 
 // import 'presentaion/screen/splashScreen.dart';
 
@@ -24,7 +27,7 @@ class AppRouter {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(
-          builder: (context) => Welcomescreen(),
+          builder: (context) => HomePage(),
         );
       // return MaterialPageRoute(
       //   builder: (_) => BlocProvider(

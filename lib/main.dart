@@ -1,11 +1,14 @@
 import 'package:devloper_app/app_router.dart';
-import 'package:devloper_app/presentaion/screen/widget/bouttom_navigation.dart';
+import 'package:devloper_app/presentaion/screen/Home.dart';
+import 'package:devloper_app/presentaion/screen/NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'business_logic/cubit/auth_cubit.dart';
 import 'data/repository/auth.dart';
 import 'data/webService/auth.dart';
+import 'presentaion/screen/sidebar_menu.dart';
+import 'presentaion/screen/widget/bouttom_navigation.dart';
 
 void main() {
   runApp(
@@ -44,7 +47,11 @@ class _MyWidgetState extends State<MyWidget> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRouter.generateRoute,
-      //  home:BottomNavigation()
+      home: Scaffold(
+        drawer: Navbar(),
+        appBar: AppBar(),
+        body: HomePage(),
+      ),
     );
   }
 }
