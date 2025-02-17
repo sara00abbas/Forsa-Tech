@@ -23,7 +23,7 @@ class Navbar extends StatelessWidget {
                 ),
               ),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage("assets/images/logoForsa.PNG"))),
