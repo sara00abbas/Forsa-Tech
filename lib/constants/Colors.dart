@@ -12,6 +12,11 @@ class MyColors {
     Color(0xFF4A15F4),
     Color(0xFF6B1A6B),
   ]);
+
+   static const LinearGradient myGreadient3 = LinearGradient(colors: [
+    Color(0xFF4A15F4),
+    Color.fromARGB(255, 173, 29, 173),
+  ], begin: Alignment.topLeft, end: Alignment.bottomRight);
 }
 
 // // ignore: file_names
