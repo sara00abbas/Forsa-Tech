@@ -12,9 +12,6 @@ class MyColors {
     Color(0xFF4A15F4),
     Color(0xFF6B1A6B),
   ]);
-
-  static const Color mybackgroundLightthem = Color.fromARGB(255, 242, 242, 242);
-  static const Color myBlacColors = Color(0xff1D1C1D);
 }
 
 // // ignore: file_names

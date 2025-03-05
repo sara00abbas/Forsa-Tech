@@ -52,6 +52,6 @@ class _MyWidgetState extends State<MyWidget> {
         // appBar: AppBar(),
         body: HomePage(),
       ),
-    );
+    ); 
   }
 }
