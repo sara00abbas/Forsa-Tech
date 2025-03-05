@@ -49,7 +49,7 @@ class _MyWidgetState extends State<MyWidget> {
       onGenerateRoute: appRouter.generateRoute,
       home: Scaffold(
         drawer: Navbar(),
-        appBar: AppBar(),
+        // appBar: AppBar(),
         body: HomePage(),
       ),
     );

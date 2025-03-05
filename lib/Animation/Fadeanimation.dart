@@ -9,21 +9,20 @@ class FadeAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     final tween = MultiTween<String>()
       ..add("opacity", Tween(begin: 0.0, end: 1.0), Duration(milliseconds: 500))
       ..add(
         "translateY",
         Tween(begin: -130.0, end: 0.0),
         Duration(milliseconds: 500),
-        Curves.easeOut, 
+        Curves.easeOut,
       );
 
     return PlayAnimation<MultiTweenValues<String>>(
-      delay: Duration(milliseconds: (500 * delay).round()), 
-      duration: tween.duration, 
-      tween: tween, 
-      child: child, 
+      delay: Duration(milliseconds: (500 * delay).round()),
+      duration: tween.duration,
+      tween: tween,
+      child: child,
       builder: (context, child, animation) => Opacity(
         opacity: animation.get("opacity"),
         child: Transform.translate(
@@ -31,6 +30,6 @@ class FadeAnimation extends StatelessWidget {
           child: child,
         ),
       ),
-    ); // these only for stack 
+    ); // these only for stack
   }
 }

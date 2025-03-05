@@ -7,7 +7,6 @@ class AuthRepository {
 
   AuthRepository({required this.authWebServices});
 
-  // نفس الفانكشن فوق نتبهي اي
   Future<Map<String, dynamic>> signUp(AuthModel authModel) async {
     try {
       final response = await authWebServices.signUp(authModel);
