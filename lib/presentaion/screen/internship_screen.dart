@@ -60,14 +60,14 @@ class InternshipsScreen extends StatelessWidget {
               //     child: const Text("+  Add ", style: TextStyle(color: Colors.white, fontSize: 16)),
               //   ),
               // ),
-              Padding(
+               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
                    mainAxisAlignment: MainAxisAlignment.end, // توزيع الزرين
                   children: [
                     ElevatedButton.icon(
                       onPressed: () {
-                        context.read<InternshipsCubit>().addInternship();
+                       context.read<InternshipsCubit>().addInternship();
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurpleAccent,

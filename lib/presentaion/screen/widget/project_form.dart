@@ -44,7 +44,7 @@ class ProjectForm extends StatelessWidget {
                   children: [
                     _buildCustomField(context, 'Project Title', Icons.code),
                     _buildCustomField(context, 'Description', Icons.description),
-                    _buildCustomField(context, 'Project link', Icons.link),
+                    _buildCustomField(context, 'Gitgub link', Icons.link),
                   ],
                 ),
               ),

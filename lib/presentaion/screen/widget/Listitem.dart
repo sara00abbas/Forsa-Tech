@@ -66,7 +66,17 @@ onTap: () {
         ),
       ),
     );
-  } else if (title == 'Projects') {
+  }else if (title == 'Internships') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BlocProvider(
+          create: (context) => InternshipsCubit()..addInternship(),
+          child: const InternshipsScreen(),
+        ),
+      ),
+    );} 
+  else if (title == 'Projects') {
     Navigator.push(
       context,
       MaterialPageRoute(
