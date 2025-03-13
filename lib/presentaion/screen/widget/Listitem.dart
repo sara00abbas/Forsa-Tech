@@ -4,12 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../business_logic/cubit/courses_cubit.dart';
 import '../../../business_logic/cubit/education_cubit.dart';
 import '../../../business_logic/cubit/internships_cubit.dart';
+import '../../../business_logic/cubit/projects_cubit.dart';
 import '../../../business_logic/cubit/skills_cubit.dart';
 import '../../../constants/Colors.dart';
 import '../course_screen.dart';
 import '../education_screen.dart';
 import '../internship_screen.dart';
 import '../personal_details.dart';
+import '../project_screen.dart';
 
 class ListItem extends StatelessWidget {
   final IconData icon;
@@ -64,13 +66,13 @@ onTap: () {
         ),
       ),
     );
-  } else if (title == 'Internships') {
+  } else if (title == 'Projects') {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => BlocProvider(
-          create: (context) => InternshipsCubit()..addInternship(),
-          child: const InternshipsScreen(),
+          create: (context) => ProjectsCubit()..addProject(),
+          child: const ProjectsScreen(),
         ),
       ),
     );
@@ -83,6 +85,7 @@ onTap: () {
     );
   }
 },
+
 
 
 
