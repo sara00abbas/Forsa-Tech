@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../business_logic/cubit/skills_cubit.dart';
-import '../../../business_logic/cubit/skills_state.dart';
-import 'widget/skill_form.dart';
+import '../../../business_logic/cubit/courses_cubit.dart';
+import '../../../business_logic/cubit/courses_state.dart';
+import 'widget/course_form.dart';
 
-class SkillsScreen extends StatelessWidget {
-  const SkillsScreen({super.key});
+class CoursesScreen extends StatelessWidget {
+  const CoursesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Skills",
+        title: const Text("Courses",
             style: TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.w300)),
         centerTitle: true,
         leading: IconButton(
@@ -20,7 +20,7 @@ class SkillsScreen extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        flexibleSpace: Container(
+       flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [Color(0xFF5B2DF0), Color(0xFF8D148D)],
@@ -30,18 +30,18 @@ class SkillsScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: BlocBuilder<SkillsCubit, SkillsState>(
+      body: BlocBuilder<CoursesCubit, CoursesState>(
         builder: (context, state) {
           return Column(
             children: [
               Expanded(
                 child: ListView.builder(
-                  itemCount: state.skillsList.length,
+                  itemCount: state.coursesList.length,
                   itemBuilder: (context, index) {
-                    return SkillForm(
+                    return CourseForm(
                       index: index,
                       onRemove: () {
-                        context.read<SkillsCubit>().removeSkill(index);
+                        context.read<CoursesCubit>().removeCourse(index);
                       },
                     );
                   },
@@ -51,10 +51,10 @@ class SkillsScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    context.read<SkillsCubit>().addSkill();
+                    context.read<CoursesCubit>().addCourse();
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.deepPurpleAccent,
+                    backgroundColor:  Colors.deepPurpleAccent,
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   ),
                   child: const Text("+  Add", style: TextStyle(color: Colors.white, fontSize: 16)),

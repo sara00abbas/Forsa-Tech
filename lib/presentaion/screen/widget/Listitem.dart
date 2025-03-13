@@ -1,9 +1,11 @@
 import 'package:devloper_app/presentaion/screen/skills_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../business_logic/cubit/courses_cubit.dart';
 import '../../../business_logic/cubit/education_cubit.dart';
 import '../../../business_logic/cubit/skills_cubit.dart';
 import '../../../constants/Colors.dart';
+import '../course_screen.dart';
 import '../education_screen.dart';
 import '../personal_details.dart';
 
@@ -47,6 +49,16 @@ onTap: () {
         builder: (context) => BlocProvider(
           create: (context) => EducationCubit()..addEducation(), // إضافة تعليم تلقائيًا عند فتح الشاشة
           child: const EducationScreen(),
+        ),
+      ),
+    );
+  } else if (title == 'Courses') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BlocProvider(
+          create: (context) => CoursesCubit()..addCourse(), // إضافة كورس تلقائيًا عند فتح الشاشة
+          child: const CoursesScreen(),
         ),
       ),
     );

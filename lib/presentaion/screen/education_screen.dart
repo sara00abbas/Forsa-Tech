@@ -53,7 +53,7 @@ class EducationScreen extends StatelessWidget {
                     context.read<EducationCubit>().addEducation();
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 162, 31, 214),
+                    backgroundColor:  Colors.deepPurpleAccent,
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   ),
                   child: const Text("+  Add", style: TextStyle(color: Colors.white, fontSize: 16)),

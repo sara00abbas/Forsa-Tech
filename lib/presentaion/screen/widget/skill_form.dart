@@ -21,7 +21,8 @@ class SkillForm extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 179, 99, 211),
+                  // gradient: LinearGradient(colors:[Colors.purple, Colors.deepPurpleAccent]),
+                  color: Colors.deepPurpleAccent,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
                 ),
                 child: Row(
@@ -71,8 +72,12 @@ class SkillForm extends StatelessWidget {
                     icon: icon,
                     hint: hint,
                     gradientColors: [Colors.purple, Colors.deepPurpleAccent],
-                    validator: (value) =>
-                        value == null || value.isEmpty ? 'This field cannot be empty' : null,
+                    validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field cannot be empty';
+                                  }
+                                  return null;
+                                },
                   ),
                 ],
               ),
