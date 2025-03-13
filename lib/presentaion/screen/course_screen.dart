@@ -47,17 +47,39 @@ class CoursesScreen extends StatelessWidget {
                   },
                 ),
               ),
-              Padding(
+              
+               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    context.read<CoursesCubit>().addCourse();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:  Colors.deepPurpleAccent,
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  ),
-                  child: const Text("+  Add", style: TextStyle(color: Colors.white, fontSize: 16)),
+                child: Row(
+                   mainAxisAlignment: MainAxisAlignment.end, // توزيع الزرين
+                  children: [
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        context.read<CoursesCubit>().addCourse();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepPurpleAccent,
+                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                      ),
+                      icon: const Icon(Icons.add, color: Colors.white),
+                      label: const Text("Add", style: TextStyle(color: Colors.white, fontSize: 16)),
+                    ),
+                    SizedBox(width: 20,),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        // تنفيذ منطق الحفظ هنا
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("Projects saved successfully!"), backgroundColor: Colors.purple),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.purple,
+                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                      ),
+                      icon: const Icon(Icons.save, color: Colors.white),
+                      label: const Text("Save", style: TextStyle(color: Colors.white, fontSize: 16)),
+                    ),
+                  ],
                 ),
               ),
             ],
