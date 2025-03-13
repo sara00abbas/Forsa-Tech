@@ -35,22 +35,17 @@ class SkillsScreen extends StatelessWidget {
           return Column(
             children: [
               Expanded(
-                child: state.skillsList.isNotEmpty
-                    ? ListView.builder(
-                        itemCount: state.skillsList.length,
-                        itemBuilder: (context, index) {
-                          return SkillForm(
-                            index: index,
-                            onRemove: () {
-                              context.read<SkillsCubit>().removeSkill(index);
-                            },
-                          );
-                        },
-                      )
-                    : const Center(
-                        child: Text("",
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
-                      ),
+                child: ListView.builder(
+                  itemCount: state.skillsList.length,
+                  itemBuilder: (context, index) {
+                    return SkillForm(
+                      index: index,
+                      onRemove: () {
+                        context.read<SkillsCubit>().removeSkill(index);
+                      },
+                    );
+                  },
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),

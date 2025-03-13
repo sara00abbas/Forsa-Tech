@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../business_logic/cubit/education_cubit.dart';
 import '../../../business_logic/cubit/education_state.dart';
 import 'widget/education_form.dart';
-
 class EducationScreen extends StatelessWidget {
   const EducationScreen({super.key});
 
@@ -35,22 +34,17 @@ class EducationScreen extends StatelessWidget {
           return Column(
             children: [
               Expanded(
-                child: state.educationList.isNotEmpty
-                    ? ListView.builder(
-                        itemCount: state.educationList.length,
-                        itemBuilder: (context, index) {
-                          return EducationForm(
-                            index: index,
-                            onRemove: () {
-                              context.read<EducationCubit>().removeEducation(index);
-                            },
-                          );
-                        },
-                      )
-                    : const Center(
-                        child: Text("",
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
-                      ),
+                child: ListView.builder(
+                  itemCount: state.educationList.length,
+                  itemBuilder: (context, index) {
+                    return EducationForm(
+                      index: index,
+                      onRemove: () {
+                        context.read<EducationCubit>().removeEducation(index);
+                      },
+                    );
+                  },
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -59,10 +53,10 @@ class EducationScreen extends StatelessWidget {
                     context.read<EducationCubit>().addEducation();
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple,
+                    backgroundColor: const Color.fromARGB(255, 162, 31, 214),
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   ),
-                  child: const Text("+ Add", style: TextStyle(color: Colors.white, fontSize: 16)),
+                  child: const Text("+  Add", style: TextStyle(color: Colors.white, fontSize: 16)),
                 ),
               ),
             ],

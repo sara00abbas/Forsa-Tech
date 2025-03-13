@@ -1,6 +1,8 @@
+import 'package:devloper_app/presentaion/screen/skills_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../business_logic/cubit/education_cubit.dart';
+import '../../../business_logic/cubit/skills_cubit.dart';
 import '../../../constants/Colors.dart';
 import '../education_screen.dart';
 import '../personal_details.dart';
@@ -27,14 +29,24 @@ class ListItem extends StatelessWidget {
         title: Text(title),
         tileColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-       onTap: () {
-  if (title == 'Education') {
+onTap: () {
+  if (title == 'Skills') {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => BlocProvider(
-          create: (context) => EducationCubit(),
-          child: EducationScreen(),
+          create: (context) => SkillsCubit()..addSkill(), // إضافة مهارة تلقائيًا عند فتح الشاشة
+          child: const SkillsScreen(),
+        ),
+      ),
+    );
+  } else if (title == 'Education') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BlocProvider(
+          create: (context) => EducationCubit()..addEducation(), // إضافة تعليم تلقائيًا عند فتح الشاشة
+          child: const EducationScreen(),
         ),
       ),
     );
@@ -42,11 +54,12 @@ class ListItem extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => PersonalDetails(),
+        builder: (context) => const PersonalDetails(),
       ),
     );
   }
 },
+
 
       ),
     );
