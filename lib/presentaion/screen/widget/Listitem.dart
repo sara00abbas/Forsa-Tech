@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../business_logic/cubit/education_cubit.dart';
 import '../../../constants/Colors.dart';
+import '../education_screen.dart';
 import '../personal_details.dart';
 
 class ListItem extends StatelessWidget {
@@ -24,14 +27,27 @@ class ListItem extends StatelessWidget {
         title: Text(title),
         tileColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => PersonalDetails(),
-            ),
-          );
-        },
+       onTap: () {
+  if (title == 'Education') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BlocProvider(
+          create: (context) => EducationCubit(),
+          child: EducationScreen(),
+        ),
+      ),
+    );
+  } else if (title == 'Personal Details') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PersonalDetails(),
+      ),
+    );
+  }
+},
+
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'widget/Listitem.dart';
 import 'widget/bottom_button.dart';
 import 'widget/section_title.dart';
@@ -36,16 +37,17 @@ class ProfileScreen extends StatelessWidget {
                 SectionTitle(title: 'Sections'),
                 ListItem(icon: Icons.person_pin, title: 'Personal Details'),
                 ListItem(icon: Icons.school, title: 'Education'),
-                ListItem(icon: Icons.workspace_premium, title: 'Experience'),
-                ListItem(icon: Icons.play_lesson, title: 'Courses'),
+                // ListItem(icon: Icons.workspace_premium, title: 'Experience'),
+                 ListItem(icon: Icons.play_lesson, title: 'Courses'),
                 ListItem(icon: CupertinoIcons.text_badge_star, title: 'Skills'),
                 
                 SizedBox(height: 10,),
                 SectionTitle(title: 'More Sections'),
                 ListItem(icon: Icons.summarize_rounded, title: 'Summary'),
-                // ListItem(icon: Icons.rocket_launch, title: 'Projects'),
-                ListItem(icon: Icons.article_rounded, title: 'Reference'),
-                ListItem(icon: CupertinoIcons.signature, title: 'Signature'),
+                
+                ListItem(icon: Icons.rocket_launch, title: 'Interships'),
+                ListItem(icon: EvaIcons.pantone , title: 'Projects'),
+                // ListItem(icon: Icons.article_rounded, title: 'Reference'),
                 // ListItem(icon: Icons.add, title: 'Add More Section'),
                 
               ],
