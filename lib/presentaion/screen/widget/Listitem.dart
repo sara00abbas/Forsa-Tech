@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../business_logic/cubit/courses_cubit.dart';
 import '../../../business_logic/cubit/education_cubit.dart';
+import '../../../business_logic/cubit/internships_cubit.dart';
 import '../../../business_logic/cubit/skills_cubit.dart';
 import '../../../constants/Colors.dart';
 import '../course_screen.dart';
 import '../education_screen.dart';
+import '../internship_screen.dart';
 import '../personal_details.dart';
 
 class ListItem extends StatelessWidget {
@@ -37,7 +39,7 @@ onTap: () {
       context,
       MaterialPageRoute(
         builder: (context) => BlocProvider(
-          create: (context) => SkillsCubit()..addSkill(), // إضافة مهارة تلقائيًا عند فتح الشاشة
+          create: (context) => SkillsCubit()..addSkill(),
           child: const SkillsScreen(),
         ),
       ),
@@ -47,7 +49,7 @@ onTap: () {
       context,
       MaterialPageRoute(
         builder: (context) => BlocProvider(
-          create: (context) => EducationCubit()..addEducation(), // إضافة تعليم تلقائيًا عند فتح الشاشة
+          create: (context) => EducationCubit()..addEducation(),
           child: const EducationScreen(),
         ),
       ),
@@ -57,8 +59,18 @@ onTap: () {
       context,
       MaterialPageRoute(
         builder: (context) => BlocProvider(
-          create: (context) => CoursesCubit()..addCourse(), // إضافة كورس تلقائيًا عند فتح الشاشة
+          create: (context) => CoursesCubit()..addCourse(),
           child: const CoursesScreen(),
+        ),
+      ),
+    );
+  } else if (title == 'Internships') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BlocProvider(
+          create: (context) => InternshipsCubit()..addInternship(),
+          child: const InternshipsScreen(),
         ),
       ),
     );
@@ -71,6 +83,7 @@ onTap: () {
     );
   }
 },
+
 
 
       ),
