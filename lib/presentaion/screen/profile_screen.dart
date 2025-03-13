@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                 SectionTitle(title: 'More Sections'),
                 ListItem(icon: Icons.summarize_rounded, title: 'Summary'),
                 
-                ListItem(icon: Icons.rocket_launch, title: 'Interships'),
+                ListItem(icon: Icons.rocket_launch, title: 'Internships'),
                 ListItem(icon: EvaIcons.pantone , title: 'Projects'),
                 // ListItem(icon: Icons.article_rounded, title: 'Reference'),
                 // ListItem(icon: Icons.add, title: 'Add More Section'),
